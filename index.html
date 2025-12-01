@@ -31,17 +31,19 @@
 
       <div class="main">
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-md-6" v-for="(movie, i) in movies">
+            <div class="imageInfo">{{movie.posterIndex}}</div>
+            <p class="title">{{movie.title}} ({{movie.country}})</p>
+            <i class="bi bi-star" aria-hidden="true"></i> {{movie.iscore}}
+
             <div class="thumbnail">
               <img class="poster img-fluid" />
-              <div class="imageInfo">%posterindex%</div>
 
-              <p class="title">%title% (%country%)</p>
-              <p class="score">
-                <i class="bi bi-star" aria-hidden="true"></i> %iscore%
+              <p class="score"></p>
+              <p class="runtime">Runtime: {{runtime(movie.runtime)}}</p>
+              <p class="released">
+                Released: {{released(movie.released)}} | Rated: %rating%
               </p>
-              <p class="runtime">Runtime: %runtime%</p>
-              <p class="released">Released: %released% | Rated: %rating%</p>
               <p class="websites">Websites: <a> imdb </a> | <a>website</a></p>
 
               <div class="social">
