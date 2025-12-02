@@ -1,39 +1,44 @@
+const months = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
 const vue_app = Vue.createApp({
   async created() {
     this.movies = await (await fetch("movies.json")).json();
-    this.months = [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December",
-    ];
   },
   data() {
     return {
       movies: [],
-      months: [],
+      owner: "Remy Serbinenko",
+      title: "title",
     };
   },
   methods: {
-    runtime: (time) => `${Math.floor(time / 60)} hrs, ${time % 60} min`,
+    runtime: (time) => `${Math.floor(time / 60)}h, ${time % 60}m`,
     released: ([day, month, year]) =>
-      `${this.months[month]} ${day}${(() => {
+      `${months[month - 1]} ${day}${(() => {
         const num = day.toString().split("").at(-1);
         if (num === "1") return "st";
         else if (num === "2") return "nd";
         else if (num === "3") return "rd";
         else return "th";
       })()}, ${year}`,
+    up: function (i, which) {
+      this.active(document.querySelector(`.${which}`), ++this.movies[i][which]);
+    },
+    active: (e, num) =>
+      num > 0 ? e.classList.add("active") : e.classList.remove("active"),
   },
-  computed: {},
 });
 
 vue_app.mount("#vue_app");

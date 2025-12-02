@@ -25,7 +25,7 @@
     <div id="vue_app" class="container">
       <div class="header">
         <div class="container">
-          <h1 id="app_title">%title%</h1>
+          <h1 id="app_title">{{title}}</h1>
         </div>
       </div>
 
@@ -39,20 +39,23 @@
             <div class="thumbnail">
               <img class="poster img-fluid" />
 
-              <p class="score"></p>
+              <p class="score">{{movie.iscore}}</p>
               <p class="runtime">Runtime: {{runtime(movie.runtime)}}</p>
               <p class="released">
-                Released: {{released(movie.released)}} | Rated: %rating%
+                Released: {{released(movie.released)}} | Rated: {{movie.rating}}
               </p>
-              <p class="websites">Websites: <a> imdb </a> | <a>website</a></p>
+              <p class="websites">
+                Websites: <a :href="movie.imdb" target="_blank"> imdb</a> |
+                <a :href="movie.website" target="_blank">website</a>
+              </p>
 
               <div class="social">
-                <p class="likes">
+                <p class="likes" @click="up(i, 'likes')">
                   <i class="bi bi-hand-thumbs-up" aria-hidden="true"></i>
-                  %likes%
+                  {{movie.likes}}
                 </p>
-                <p class="dislikes">
-                  <i class="bi bi-hand-thumbs-down"></i> %dislikes%
+                <p class="dislikes" @click="up(i, 'dislikes')">
+                  <i class="bi bi-hand-thumbs-down"></i> {{movie.dislikes}}
                 </p>
               </div>
             </div>
@@ -63,7 +66,7 @@
       <div class="footer">
         <div class="container">
           <a id="github" class="btn btn-lg btn-warning">
-            <i class="bi bi-github me-2"></i>%owner%
+            <i class="bi bi-github me-2"></i>{{owner}}
           </a>
         </div>
       </div>
