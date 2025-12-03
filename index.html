@@ -33,11 +33,17 @@
         <div class="row">
           <div class="col-md-6" v-for="(movie, i) in movies">
             <div class="imageInfo">{{movie.posterIndex}}</div>
-            <p class="title">{{movie.title}} ({{movie.country}})</p>
-            <i class="bi bi-star" aria-hidden="true"></i> {{movie.iscore}}
-
+            <div class="film-header">
+              <p class="title">{{movie.title}} ({{movie.country}})</p>
+              <div class="ratingStar">
+                <i class="bi bi-star" aria-hidden="true"></i> {{movie.iscore}}
+              </div>
+            </div>
             <div class="thumbnail">
-              <img class="poster img-fluid" />
+              <img
+                class="poster img-fluid"
+                :src="movie.posters[movie.posterIndex]"
+              />
 
               <p class="score">{{movie.iscore}}</p>
               <p class="runtime">Runtime: {{runtime(movie.runtime)}}</p>

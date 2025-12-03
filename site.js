@@ -34,7 +34,10 @@ const vue_app = Vue.createApp({
         else return "th";
       })()}, ${year}`,
     up: function (i, which) {
-      this.active(document.querySelector(`.${which}`), ++this.movies[i][which]);
+      this.active(
+        document.getElementsByClassName(which)[i],
+        ++this.movies[i][which]
+      );
     },
     active: (e, num) =>
       num > 0 ? e.classList.add("active") : e.classList.remove("active"),
