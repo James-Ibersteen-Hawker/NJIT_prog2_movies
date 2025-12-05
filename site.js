@@ -20,7 +20,7 @@ const vue_app = Vue.createApp({
     return {
       movies: [],
       owner: "Remy Serbinenko",
-      title: "title",
+      title: "Imdb - Remy's Top 8 Movies",
     };
   },
   methods: {
@@ -39,8 +39,13 @@ const vue_app = Vue.createApp({
         ++this.movies[i][which]
       );
     },
+    switchImg: function (i) {
+      this.movies[i].posterIndex =
+        (this.movies[i].posterIndex + 1) % this.movies[i].posters.length;
+    },
     active: (e, num) =>
       num > 0 ? e.classList.add("active") : e.classList.remove("active"),
+    toTop: () => (window.location = "#vue_app"),
   },
 });
 
