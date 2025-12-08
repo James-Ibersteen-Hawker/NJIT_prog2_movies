@@ -114,5 +114,61 @@
     "likes": 0,
     "dislikes": 0,
     "posterIndex": 0
+  },
+  {
+    "title": "The Lord of the Rings",
+    "iscore": 6.8,
+    "rating": "PG-13",
+    "runtime": 136,
+    "released": [10, 7, 1998],
+    "country": "America",
+    "posters": ["img/zorro1.jpg", "img/zorro2.jpg", "img/zorro3.jpg"],
+    "imdb": "https://www.imdb.com/title/tt0120746/",
+    "website": "https://google.com",
+    "likes": 0,
+    "dislikes": 0,
+    "posterIndex": 0
+  },
+  {
+    "title": "The Mask of Zorro",
+    "iscore": 6.8,
+    "rating": "PG-13",
+    "runtime": 136,
+    "released": [10, 7, 1998],
+    "country": "America",
+    "posters": ["img/zorro1.jpg", "img/zorro2.jpg", "img/zorro3.jpg"],
+    "imdb": "https://www.imdb.com/title/tt0120746/",
+    "website": "https://google.com",
+    "likes": 0,
+    "dislikes": 0,
+    "posterIndex": 0
+  },
+  {
+    "title": "The Mask of Zorro",
+    "iscore": 6.8,
+    "rating": "PG-13",
+    "runtime": 136,
+    "released": [10, 7, 1998],
+    "country": "America",
+    "posters": ["img/zorro1.jpg", "img/zorro2.jpg", "img/zorro3.jpg"],
+    "imdb": "https://www.imdb.com/title/tt0120746/",
+    "website": "https://google.com",
+    "likes": 0,
+    "dislikes": 0,
+    "posterIndex": 0
+  },
+  {
+    "title": "The Mask of Zorro",
+    "iscore": 6.8,
+    "rating": "PG-13",
+    "runtime": 136,
+    "released": [10, 7, 1998],
+    "country": "America",
+    "posters": ["img/zorro1.jpg", "img/zorro2.jpg", "img/zorro3.jpg"],
+    "imdb": "https://www.imdb.com/title/tt0120746/",
+    "website": "https://google.com",
+    "likes": 0,
+    "dislikes": 0,
+    "posterIndex": 0
   }
 ]
