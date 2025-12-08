@@ -34,7 +34,6 @@
           <h1 id="app_title">{{title}}</h1>
         </div>
       </div>
-
       <div class="main">
         <div class="row">
           <div class="col-md-6 col-lg-4" v-for="(movie, i) in movies">
@@ -55,7 +54,7 @@
                   @click="switchImg(i)"
                 />
                 <div class="imageInfo">
-                  {{movie.posterIndex}} of {{movie.posters.length}}
+                  {{movie.posterIndex + 1}} of {{movie.posters.length}}
                 </div>
                 <div class="wrapper">
                   <p class="score">{{movie.iscore}}</p>
