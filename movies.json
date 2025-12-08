@@ -24,7 +24,7 @@
     "runtime": 100,
     "released": [15, 5, 2011],
     "country": "France",
-    "posters": ["img/artist1.jpg", "img/artist2.jpg", "img/artist3.webp"],
+    "posters": ["img/artist3.webp", "img/artist1.jpg", "img/artist2.jpg"],
     "imdb": "https://www.imdb.com/title/tt1655442/",
     "website": "https://google.com",
     "likes": 0,

@@ -12,9 +12,12 @@ const months = [
   "November",
   "December",
 ];
+const { nextTick } = Vue;
 const vue_app = Vue.createApp({
   async created() {
     this.movies = await (await fetch("movies.json")).json();
+    await nextTick();
+    sizer(), (window.onresize = sizer);
   },
   data() {
     return {
@@ -50,3 +53,19 @@ const vue_app = Vue.createApp({
 });
 
 vue_app.mount("#vue_app");
+
+function sizer() {
+  const height = new Set();
+  document.querySelectorAll(".cardContainer").forEach((e, i) => {
+    const header = Array.from(document.querySelectorAll(".film-header"))[i];
+    height.add(header.offsetHeight);
+  });
+  if (height.size > 0) {
+    const maxheight = Array.from(height)
+      .sort((a, b) => a - b)
+      .at(-1);
+    document.querySelectorAll(".film-header").forEach((e) => {
+      e.setAttribute("style", `height: ${maxheight}px`);
+    });
+  }
+}

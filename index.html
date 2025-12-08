@@ -40,7 +40,9 @@
           <div class="col-md-6 col-lg-4" v-for="(movie, i) in movies">
             <div class="cardContainer">
               <div class="film-header">
-                <p class="title">{{movie.title}} ({{movie.country}})</p>
+                <p class="title">
+                  {{movie.title}} <span>({{movie.country}})</span>
+                </p>
                 <div class="ratingStar">
                   <i class="bi bi-star" aria-hidden="true"></i>&nbsp;
                   {{movie.iscore}}
@@ -52,8 +54,12 @@
                   :src="movie.posters[movie.posterIndex]"
                   @click="switchImg(i)"
                 />
-                <div class="imageInfo">{{movie.posterIndex}}</div>
-                <p class="score">{{movie.iscore}}</p>
+                <div class="imageInfo">
+                  {{movie.posterIndex}} of {{movie.posters.length}}
+                </div>
+                <div class="wrapper">
+                  <p class="score">{{movie.iscore}}</p>
+                </div>
                 <p class="runtime">Runtime: {{runtime(movie.runtime)}}</p>
                 <p class="released">
                   Released: {{released(movie.released)}} | Rated:
@@ -77,15 +83,15 @@
             </div>
           </div>
         </div>
-      </div>
-
-      <div class="footer">
-        <div class="container">
-          <a id="github" class="btn btn-lg btn-warning">
-            <i class="bi bi-github me-2"></i>{{owner}}
-          </a>
+        <div class="footer">
+          <div class="container">
+            <a id="github" class="btn btn-lg btn-warning">
+              <i class="bi bi-github me-2"></i>{{owner}}
+            </a>
+          </div>
         </div>
       </div>
+
       <div class="toTop" @click="toTop()">
         <a>To Top</a>
       </div>
