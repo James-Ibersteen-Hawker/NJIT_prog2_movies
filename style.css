@@ -81,38 +81,80 @@ body {
           }
           .thumbnail {
             img {
+              cursor: pointer;
               width: 100%;
               aspect-ratio: 3/4;
               border: 5px dotted gold;
               filter: drop-shadow(0px 0px 2px black);
             }
             .imageInfo {
+              position: relative;
+              display: block;
               text-align: center;
               font-style: italic;
               font-family: "Times New Roman", Times, serif;
               font-size: 20px;
+              .wrapper {
+                filter: drop-shadow(0px 0px 10px rgb(0, 0, 0))
+                  drop-shadow(0px 0px 5px black);
+                font-family: Arial, Helvetica, sans-serif;
+                font-style: normal;
+                position: absolute;
+                right: 10px;
+                bottom: 0;
+                .score {
+                  height: 100px;
+                  width: 100px;
+                  background: radial-gradient(
+                    rgb(80, 196, 196),
+                    rgb(102, 102, 102)
+                  );
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  color: white;
+                  text-shadow: 0px 0px 3px black;
+                  font-weight: 900;
+                  font-size: 20px;
+                  clip-path: polygon(0 50%, 50% 0, 100% 50%, 50% 100%);
+                }
+              }
             }
-            .wrapper {
-              filter: drop-shadow(0px 0px 10px rgb(0, 0, 0))
-                drop-shadow(0px 0px 5px black);
-              position: fixed;
-              right: 10px;
-              bottom: calc(45px + 150px);
-              .score {
-                height: 100px;
-                width: 100px;
-                background: radial-gradient(
-                  rgb(80, 196, 196),
-                  rgb(102, 102, 102)
-                );
+            .social {
+              display: flex;
+              justify-content: end;
+              align-items: center;
+              border-top: 1px solid rgba(255, 217, 0, 0.704);
+              padding-top: 10px;
+              .likes,
+              .dislikes {
+                max-width: 80px;
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                color: white;
-                text-shadow: 0px 0px 3px black;
-                font-weight: 900;
+                padding: 15px;
+                background: transparent;
+                border: 1px solid black;
+                border-radius: 100%;
                 font-size: 20px;
-                clip-path: polygon(0 50%, 50% 0, 100% 50%, 50% 100%);
+                transition: 0.2s;
+                margin: 0 10px 5px 0 !important;
+                font-family: "Georgie", Times, serif;
+                cursor: pointer;
+              }
+              .likes:hover {
+                background: rgba(0, 128, 0, 0.7);
+                transition: 0.2s;
+              }
+              .dislikes:hover {
+                background: rgba(255, 0, 0, 0.7);
+                transition: 0.2s;
+              }
+              .likes.active {
+                background: rgba(0, 128, 0, 0.7);
+              }
+              .dislikes.active {
+                background: rgba(255, 0, 0, 0.7);
               }
             }
           }
@@ -164,7 +206,6 @@ body {
     transition: 0.2s;
   }
 }
-
 @keyframes insanity {
   from {
     background-position: 0 0;

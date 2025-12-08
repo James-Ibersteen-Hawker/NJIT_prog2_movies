@@ -55,9 +55,9 @@
                 />
                 <div class="imageInfo">
                   {{movie.posterIndex + 1}} of {{movie.posters.length}}
-                </div>
-                <div class="wrapper">
-                  <p class="score">{{movie.iscore}}</p>
+                  <div class="wrapper">
+                    <p class="score">{{movie.iscore}}</p>
+                  </div>
                 </div>
                 <p class="runtime">Runtime: {{runtime(movie.runtime)}}</p>
                 <p class="released">
@@ -71,11 +71,11 @@
 
                 <div class="social">
                   <p class="likes" @click="up(i, 'likes')">
-                    <i class="bi bi-hand-thumbs-up" aria-hidden="true"></i>
+                    <i class="bi bi-hand-thumbs-up" aria-hidden="true"></i>&nbsp;
                     {{movie.likes}}
                   </p>
                   <p class="dislikes" @click="up(i, 'dislikes')">
-                    <i class="bi bi-hand-thumbs-down"></i> {{movie.dislikes}}
+                    <i class="bi bi-hand-thumbs-down"></i>&nbsp; {{movie.dislikes}}
                   </p>
                 </div>
               </div>
