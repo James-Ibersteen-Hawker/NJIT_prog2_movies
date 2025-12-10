@@ -83,7 +83,6 @@ body::-webkit-scrollbar {
               box-shadow: -2px 2px 3px black;
               border-left: 2px solid gold;
               border-bottom: 2px solid gold;
-              user-select: none;
             }
           }
           .thumbnail {
@@ -169,7 +168,7 @@ body::-webkit-scrollbar {
               );
             }
             .runtime {
-              border-top: 1px solid gold;
+              border-top: 2px solid gold;
               padding-top: 5px;
             }
             .websites {

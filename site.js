@@ -18,26 +18,40 @@ const vue_app = Vue.createApp({
   async created() {
     this.movies = await (await fetch("movies.json")).json();
     await nextTick();
+    const tooltipTriggerList = document.querySelectorAll(
+      '[data-bs-toggle="tooltip"]'
+    );
+    const tooltipList = [...tooltipTriggerList].map(
+      (tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl)
+    );
     sizer(), (window.onresize = sizer);
   },
   data() {
     return {
       movies: [],
       owner: "Remy Serbinenko",
-      github: "https://github.com/James-Ibersteen-Hawker",
+      github: "https://github.com/James-Ibersteen-Hawker/NJIT_prog2_movies",
     };
   },
   methods: {
     runtime: (time) => `${Math.floor(time / 60)}h ${time % 60}m`,
-    released: ([day, month, year]) =>
-      `${months[month - 1]} ${day}${(() => {
-        const num = day.toString().split("").at(-1);
-        if (Number(day) > 10 && Number(day) < 20) return "th";
-        if (num === "1") return "st";
+    released: ([d, m, y]) =>
+      `${months[m - 1]} ${d}${(() => {
+        const lastTwo = d.toString().slice(-2);
+        const num = lastTwo.slice(-1);
+        if (["11", "12", "13"].includes(lastTwo)) return "th";
+        else if (num === "1") return "st";
         else if (num === "2") return "nd";
         else if (num === "3") return "rd";
         else return "th";
-      })()}, ${year}`,
+      })()}, ${y}`,
+    // released: ([d, m, y]) => {
+    //   `${months[m - 1]} ${d}${(() => {
+    //     return ["11", "12", "13"].includes((d + "").slice(-2))
+    //       ? "th"
+    //       : { 1: "st", 2: "nd", 3: "rd" }[(d + "").slice(-1)] || "th";
+    //   })()}, ${y}`;
+    // }, chatGPT suggestion for extreme compactness that I thought was quite cute and clever
     up: function (i, which) {
       this.active(
         document.getElementsByClassName(which)[i],
