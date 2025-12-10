@@ -31,6 +31,7 @@ const vue_app = Vue.createApp({
     released: ([day, month, year]) =>
       `${months[month - 1]} ${day}${(() => {
         const num = day.toString().split("").at(-1);
+        if (Number(day) > 10 && Number(day) < 20) return "th";
         if (num === "1") return "st";
         else if (num === "2") return "nd";
         else if (num === "3") return "rd";
