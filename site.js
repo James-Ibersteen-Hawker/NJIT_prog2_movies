@@ -23,11 +23,11 @@ const vue_app = Vue.createApp({
     return {
       movies: [],
       owner: "Remy Serbinenko",
-      title: "Imdb - Remy's Top 8 Movies",
+      github: "https://github.com/James-Ibersteen-Hawker"
     };
   },
   methods: {
-    runtime: (time) => `${Math.floor(time / 60)}h, ${time % 60}m`,
+    runtime: (time) => `${Math.floor(time / 60)}h ${time % 60}m`,
     released: ([day, month, year]) =>
       `${months[month - 1]} ${day}${(() => {
         const num = day.toString().split("").at(-1);
@@ -50,15 +50,18 @@ const vue_app = Vue.createApp({
       num > 0 ? e.classList.add("active") : e.classList.remove("active"),
     toTop: () => (window.location = "#vue_app"),
   },
+  computed: {
+    title: function () {
+      return `Imdb - Remy's Top ${this.movies.length} Movies`;
+    },
+  },
 });
-
 vue_app.mount("#vue_app");
-
 function sizer() {
   const height = new Set();
-  document.querySelectorAll(".cardContainer").forEach((e, i) => {
-    const header = Array.from(document.querySelectorAll(".film-header"))[i];
-    height.add(header.offsetHeight);
+  document.querySelectorAll(".film-header").forEach((e) => {
+    e.removeAttribute("style");
+    height.add(e.offsetHeight);
   });
   if (height.size > 0) {
     const maxheight = Array.from(height)

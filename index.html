@@ -60,22 +60,21 @@
                   </div>
                 </div>
                 <p class="runtime">Runtime: {{runtime(movie.runtime)}}</p>
-                <p class="released">
-                  Released: {{released(movie.released)}} | Rated:
-                  {{movie.rating}}
-                </p>
+                <p class="released">Released: {{released(movie.released)}}</p>
                 <p class="websites">
-                  Websites: <a :href="movie.imdb" target="_blank"> imdb</a> |
-                  <a :href="movie.website" target="_blank">website</a>
+                  Websites: <a :href="movie.imdb" target="_blank">IMDB</a> |
+                  <a :href="movie.website" target="_blank">Google</a>
                 </p>
 
                 <div class="social">
+                  <p class="rating">{{movie.rating}}</p>
                   <p class="likes" @click="up(i, 'likes')">
-                    <i class="bi bi-hand-thumbs-up" aria-hidden="true"></i>&nbsp;
-                    {{movie.likes}}
+                    <i class="bi bi-hand-thumbs-up" aria-hidden="true"></i
+                    >&nbsp; {{movie.likes}}
                   </p>
                   <p class="dislikes" @click="up(i, 'dislikes')">
-                    <i class="bi bi-hand-thumbs-down"></i>&nbsp; {{movie.dislikes}}
+                    <i class="bi bi-hand-thumbs-down"></i>&nbsp;
+                    {{movie.dislikes}}
                   </p>
                 </div>
               </div>
@@ -84,7 +83,7 @@
         </div>
         <div class="footer">
           <div class="container">
-            <a id="github" class="btn btn-lg btn-warning">
+            <a id="github" class="btn btn-lg btn-warning" :href="github">
               <i class="bi bi-github me-2"></i>{{owner}}
             </a>
           </div>
