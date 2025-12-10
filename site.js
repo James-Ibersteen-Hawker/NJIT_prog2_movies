@@ -23,7 +23,7 @@ const vue_app = Vue.createApp({
     return {
       movies: [],
       owner: "Remy Serbinenko",
-      github: "https://github.com/James-Ibersteen-Hawker"
+      github: "https://github.com/James-Ibersteen-Hawker",
     };
   },
   methods: {
@@ -52,23 +52,20 @@ const vue_app = Vue.createApp({
   },
   computed: {
     title: function () {
-      return `Imdb - Remy's Top ${this.movies.length} Movies`;
+      return `Imdb + Remy's Top ${this.movies.length} Movies`;
     },
   },
 });
 vue_app.mount("#vue_app");
 function sizer() {
   const height = new Set();
-  document.querySelectorAll(".film-header").forEach((e) => {
+  const headers = Array.from(document.querySelectorAll(".film-header"));
+  headers.forEach((e) => {
     e.removeAttribute("style");
     height.add(e.offsetHeight);
   });
   if (height.size > 0) {
-    const maxheight = Array.from(height)
-      .sort((a, b) => a - b)
-      .at(-1);
-    document.querySelectorAll(".film-header").forEach((e) => {
-      e.setAttribute("style", `height: ${maxheight}px`);
-    });
+    const mH = Array.from(height).sort().at(-1);
+    headers.forEach((e) => e.setAttribute("style", `height: ${mH}px`));
   }
 }
